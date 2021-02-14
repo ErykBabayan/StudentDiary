@@ -42,10 +42,10 @@ namespace StudentDiary
 
         }
 
-        
 
 
-        private void SetColumnsHeader() 
+
+        private void SetColumnsHeader()
         {
             dgvDiary.Columns[0].HeaderText = "Numer";
             dgvDiary.Columns[1].HeaderText = "Imię";
@@ -57,24 +57,18 @@ namespace StudentDiary
             dgvDiary.Columns[7].HeaderText = "Język Polski";
             dgvDiary.Columns[8].HeaderText = "Język Obcy";
             dgvDiary.Columns[9].HeaderText = "Zajęcia dodatkowe";
+            dgvDiary.Columns[10].HeaderText = "Klasa Ucznia";
 
-
-           
         }
 
 
         public void RefreshDataGridView()
         {
             var allStudents = _fileHelper.DeserializeFromFile();
-
+            dgvDiary.DataSource = allStudents;
 
             // Próba posortowania listy studentów w dgv po ich numerze id. Błędów nie ma ale aplikacja sie chce się uruchomić. W jaki sposób posortować dgv ?
             //var allStudentsSorted = allStudents.OrderBy(studentId => studentId.Id); 
-
-
-            dgvDiary.DataSource = allStudents;
-
-
 
         }
 
@@ -98,7 +92,7 @@ namespace StudentDiary
                 return; // return kończy funkcję bez wykonywania reszty kodu
             }
 
-            var addEditStudent = new AddEditStudent(Convert.ToInt32(dgvDiary.SelectedRows[0].Cells[0].Value));
+            var addEditStudent = new AddEditStudent(Convert.ToInt32(dgvDiary.SelectedRows[0].Cells[0].Value)); // pobiera wartość ID studenta
 
             addEditStudent.ShowDialog();
 
@@ -148,12 +142,6 @@ namespace StudentDiary
 
         }
 
-
-
-        private void dgwDiary_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void Main_FormClosed(object sender, FormClosedEventArgs e)
         {

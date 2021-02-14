@@ -1,4 +1,7 @@
-﻿namespace StudentDiary
+﻿using System;
+using System.Collections.Generic;
+
+namespace StudentDiary
 {
 
 
@@ -16,7 +19,9 @@
         public string PolishLang { get; set; }
         public string ForeignLang { get; set; }
         public bool AdditionalClasses { get; set; }
+        public string GroupId { get; set; }
 
+   
     }
 
 

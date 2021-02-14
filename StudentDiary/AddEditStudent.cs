@@ -28,7 +28,8 @@ namespace StudentDiary
 
             tbFirstName.Select();
 
-            
+     
+
         }
 
 
@@ -67,6 +68,7 @@ namespace StudentDiary
             tbForeignLang.Text = _student.ForeignLang;
             rtbComments.Text = _student.Comments;
             cbAdditionalClasses.Checked = _student.AdditionalClasses;
+            cbxStudentClass.Text = _student.GroupId;
         }
 
 
@@ -115,9 +117,10 @@ namespace StudentDiary
                 PolishLang = tbPolishLang.Text,
                 ForeignLang = tbForeignLang.Text,
                 AdditionalClasses = attendingAdditionalClasses,
+                GroupId = cbxStudentClass.Text,
                 
                 
-
+                
             };
 
             students.Add(student);
@@ -144,6 +147,9 @@ namespace StudentDiary
             Close();
         }
 
+        private void cbxStudentClass_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

@@ -50,6 +50,7 @@ namespace StudentDiary
             this.btnConfirm = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.cbAdditionalClasses = new System.Windows.Forms.CheckBox();
+            this.cbxStudentClass = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lbId
@@ -200,7 +201,7 @@ namespace StudentDiary
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(259, 368);
+            this.btnConfirm.Location = new System.Drawing.Point(260, 407);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(75, 23);
             this.btnConfirm.TabIndex = 25;
@@ -210,11 +211,11 @@ namespace StudentDiary
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(117, 367);
+            this.btnCancel.Location = new System.Drawing.Point(117, 407);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 26;
-            this.btnCancel.Text = "Odrzuć";
+            this.btnCancel.Text = "Anuluj";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -228,14 +229,31 @@ namespace StudentDiary
             this.cbAdditionalClasses.TabIndex = 27;
             this.cbAdditionalClasses.Text = "Zajęcia dodatkowe";
             this.cbAdditionalClasses.UseVisualStyleBackColor = true;
-
+            // 
+            // cbxStudentClass
+            // 
+            this.cbxStudentClass.FormattingEnabled = true;
+            this.cbxStudentClass.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"});
+            this.cbxStudentClass.Location = new System.Drawing.Point(13, 366);
+            this.cbxStudentClass.Name = "cbxStudentClass";
+            this.cbxStudentClass.Size = new System.Drawing.Size(67, 21);
+            this.cbxStudentClass.TabIndex = 28;
+            this.cbxStudentClass.Text = "Klasa ";
+            this.cbxStudentClass.SelectedIndexChanged += new System.EventHandler(this.cbxStudentClass_SelectedIndexChanged);
             // 
             // AddEditStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(344, 427);
+            this.ClientSize = new System.Drawing.Size(349, 511);
+            this.Controls.Add(this.cbxStudentClass);
             this.Controls.Add(this.cbAdditionalClasses);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnConfirm);
@@ -257,7 +275,7 @@ namespace StudentDiary
             this.Controls.Add(this.tbFirstName);
             this.Controls.Add(this.lbId);
             this.Controls.Add(this.tbId);
-            this.MaximumSize = new System.Drawing.Size(360, 466);
+            this.MaximumSize = new System.Drawing.Size(400, 550);
             this.MinimumSize = new System.Drawing.Size(360, 466);
             this.Name = "AddEditStudent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -290,5 +308,6 @@ namespace StudentDiary
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.CheckBox cbAdditionalClasses;
+        private System.Windows.Forms.ComboBox cbxStudentClass;
     }
 }
