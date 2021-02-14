@@ -100,7 +100,7 @@ namespace StudentDiary
         private void AddStudentToList(List<Student> students)
         {
 
-            bool additionalClasses = IsAdditionalClassesChecked();
+            bool attendingAdditionalClasses = CheckIfAdditionalClassesIsChecked();
 
             Student student = new Student()
             {
@@ -114,7 +114,8 @@ namespace StudentDiary
                 Technology = tbTechnology.Text,
                 PolishLang = tbPolishLang.Text,
                 ForeignLang = tbForeignLang.Text,
-                AdditionalClasses = additionalClasses,
+                AdditionalClasses = attendingAdditionalClasses,
+                
                 
 
             };
@@ -125,7 +126,7 @@ namespace StudentDiary
             Close();
         }
 
-        private bool IsAdditionalClassesChecked()
+        private bool CheckIfAdditionalClassesIsChecked()
         {
             if (cbAdditionalClasses.Checked == false)
             {

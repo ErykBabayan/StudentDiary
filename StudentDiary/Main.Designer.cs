@@ -82,7 +82,7 @@ namespace StudentDiary
             this.dgvDiary.Name = "dgvDiary";
             this.dgvDiary.RowHeadersVisible = false;
             this.dgvDiary.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDiary.Size = new System.Drawing.Size(996, 494);
+            this.dgvDiary.Size = new System.Drawing.Size(1080, 506);
             this.dgvDiary.TabIndex = 4;
             this.dgvDiary.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwDiary_CellContentClick);
             // 
@@ -91,7 +91,7 @@ namespace StudentDiary
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1020, 547);
+            this.ClientSize = new System.Drawing.Size(1104, 559);
             this.Controls.Add(this.dgvDiary);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
