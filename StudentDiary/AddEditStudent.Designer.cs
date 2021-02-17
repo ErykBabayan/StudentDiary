@@ -234,6 +234,7 @@ namespace StudentDiary
             // 
             this.cbxStudentClass.FormattingEnabled = true;
             this.cbxStudentClass.Items.AddRange(new object[] {
+            "Klasa",
             "1",
             "2",
             "3",
@@ -244,7 +245,7 @@ namespace StudentDiary
             this.cbxStudentClass.Name = "cbxStudentClass";
             this.cbxStudentClass.Size = new System.Drawing.Size(67, 21);
             this.cbxStudentClass.TabIndex = 28;
-            this.cbxStudentClass.Text = "Klasa ";
+            this.cbxStudentClass.Text = "Klasa";
             this.cbxStudentClass.SelectedIndexChanged += new System.EventHandler(this.cbxStudentClass_SelectedIndexChanged);
             // 
             // AddEditStudent

@@ -33,6 +33,7 @@ namespace StudentDiary
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.dgvDiary = new System.Windows.Forms.DataGridView();
+            this.cbxSortByClass = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiary)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,9 +72,6 @@ namespace StudentDiary
             // 
             // dgvDiary
             // 
-            this.dgvDiary.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDiary.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDiary.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvDiary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -84,12 +82,31 @@ namespace StudentDiary
             this.dgvDiary.Size = new System.Drawing.Size(1081, 506);
             this.dgvDiary.TabIndex = 4;
             // 
+            // cbxSortByClass
+            // 
+            this.cbxSortByClass.FormattingEnabled = true;
+            this.cbxSortByClass.Items.AddRange(new object[] {
+            "Wszystkie",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"});
+            this.cbxSortByClass.Location = new System.Drawing.Point(256, 13);
+            this.cbxSortByClass.Name = "cbxSortByClass";
+            this.cbxSortByClass.Size = new System.Drawing.Size(127, 21);
+            this.cbxSortByClass.TabIndex = 5;
+            this.cbxSortByClass.Text = "Wszystkie";
+            this.cbxSortByClass.SelectedIndexChanged += new System.EventHandler(this.cbxClassSort_SelectedIndexChanged);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1105, 559);
+            this.Controls.Add(this.cbxSortByClass);
             this.Controls.Add(this.dgvDiary);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
@@ -108,6 +125,7 @@ namespace StudentDiary
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.DataGridView dgvDiary;
+        private System.Windows.Forms.ComboBox cbxSortByClass;
     }
 }
 

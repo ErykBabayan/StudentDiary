@@ -1,9 +1,8 @@
 ﻿using StudentDiary.Properties;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.Data;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace StudentDiary
@@ -26,7 +25,7 @@ namespace StudentDiary
 
         private FileHelper<List<Student>> _fileHelper = new FileHelper<List<Student>>(Program.FilePath);
 
-        
+
         public Main()
         {
             InitializeComponent();
@@ -65,11 +64,17 @@ namespace StudentDiary
         public void RefreshDataGridView()
         {
             var allStudents = _fileHelper.DeserializeFromFile();
-            dgvDiary.DataSource = allStudents;
 
-            // Próba posortowania listy studentów w dgv po ich numerze id. Błędów nie ma ale aplikacja sie chce się uruchomić. W jaki sposób posortować dgv ?
-            //var allStudentsSorted = allStudents.OrderBy(studentId => studentId.Id); 
+            var allStudentsSorted = allStudents.OrderBy(studentId => studentId.Id).ToList();
 
+            dgvDiary.DataSource = allStudentsSorted; // Sortowanie studentów z racji "mieszania" się obiektów listy podczas edycji
+
+
+            if (cbxSortByClass.Text != "Wszystkie") // Filtrowanie uczniów
+            {
+                var filteredStudents = allStudents.Where(x => x.GroupId == cbxSortByClass.Text).ToList();
+                dgvDiary.DataSource = filteredStudents;
+            }
         }
 
 
@@ -82,9 +87,9 @@ namespace StudentDiary
             RefreshDataGridView();
         }
 
-        private  void btnEdit_Click(object sender, EventArgs e)
+        private void btnEdit_Click(object sender, EventArgs e)
         {
-         
+
 
             if (dgvDiary.SelectedRows.Count == 0)
             {
@@ -135,7 +140,7 @@ namespace StudentDiary
         {
             var deleteStudent = _fileHelper.DeserializeFromFile();
 
-            int studentId = id; // pobiera wartość ID studenta
+            int studentId = id; // pobiera wartość ID studenta przez konstruktor
             deleteStudent.RemoveAll(x => x.Id == studentId);
 
             _fileHelper.SerializeToFile(deleteStudent);
@@ -157,6 +162,11 @@ namespace StudentDiary
 
             Settings.Default.Save();
 
+        }
+
+        private void cbxClassSort_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshDataGridView();
         }
     }
 }

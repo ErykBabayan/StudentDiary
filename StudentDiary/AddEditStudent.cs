@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using System.Xml.Serialization;
 
 namespace StudentDiary
 {
@@ -28,14 +26,14 @@ namespace StudentDiary
 
             tbFirstName.Select();
 
-     
+
 
         }
 
 
         private void GetStudentData()
         {
-            if (_studentId != 0) // sprawdzenie czy kliknięcie w formę jest edycją czy dodaniem
+            if (_studentId != 0) // sprawdzenie czy kliknięcie w formę jest edycją czy dodaniem ucznia
             {
 
                 Text = "Edytowanie danych ucznia";
@@ -57,7 +55,7 @@ namespace StudentDiary
 
         private void AssignTextBoxes()
         {
-            
+
             tbId.Text = _student.Id.ToString();
             tbFirstName.Text = _student.FirstName;
             tbLastName.Text = _student.LastName;
@@ -82,27 +80,34 @@ namespace StudentDiary
             {
                 students.RemoveAll(x => x.Id == _studentId);
             }
-            else // jesli(if) id istnieje tzn ze dane sa edytowane jesli nie  istnieja (else) tzn, że jest to nowe wprowadzenie danych 
+            else
             {
                 AssignIdToNewStudent(students);
             }
 
             AddStudentToList(students);
 
-     
+
         }
 
         private void AssignIdToNewStudent(List<Student> students)
         {
             var studentWithHighestId = students.OrderByDescending(currentIdNumber => currentIdNumber.Id).FirstOrDefault();
-            
-            _studentId = studentWithHighestId == null ? 1 : studentWithHighestId.Id + 1;  // if else  warunek > if true 1 > else id+1
+
+            _studentId = studentWithHighestId == null ? 1 : studentWithHighestId.Id + 1;
         }
 
         private void AddStudentToList(List<Student> students)
         {
 
             bool attendingAdditionalClasses = CheckIfAdditionalClassesIsChecked();
+
+
+            if (cbxStudentClass.Text == "Klasa") // W przypadku nie wybrania żadnej opcji dotyczących klasy ucznia dla kosmetyki przypisuje mu "Nie sprecyzowano"
+            {
+                cbxStudentClass.Text = "Nie sprecyzowano";
+            }
+
 
             Student student = new Student()
             {
@@ -118,9 +123,7 @@ namespace StudentDiary
                 ForeignLang = tbForeignLang.Text,
                 AdditionalClasses = attendingAdditionalClasses,
                 GroupId = cbxStudentClass.Text,
-                
-                
-                
+
             };
 
             students.Add(student);

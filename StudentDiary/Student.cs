@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace StudentDiary
+﻿namespace StudentDiary
 {
 
 
     public class Student
     {
 
-        
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -21,7 +17,6 @@ namespace StudentDiary
         public bool AdditionalClasses { get; set; }
         public string GroupId { get; set; }
 
-   
     }
 
 
